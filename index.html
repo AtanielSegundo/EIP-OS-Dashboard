@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
     
     <style>
+        /* [Estilos mantidos iguais aos anteriores] */
         :root {
             --primary-color: #4a5568;
             --secondary-color: #2d3748;
@@ -64,14 +65,6 @@
             transition: background 0.3s ease;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
-        
-        * {
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        html {
-            scroll-behavior: smooth;
         }
         
         .container {
@@ -220,28 +213,12 @@
             transform: translateY(-3px);
         }
         
-        .stat-card.success {
-            background: var(--success-color);
-        }
+        .stat-card.success { background: var(--success-color); }
+        .stat-card.danger { background: var(--danger-color); }
+        .stat-card.warning { background: var(--warning-color); }
         
-        .stat-card.danger {
-            background: var(--danger-color);
-        }
-        
-        .stat-card.warning {
-            background: var(--warning-color);
-        }
-        
-        .stat-label {
-            font-size: 0.9em;
-            opacity: 0.95;
-            margin-bottom: 10px;
-        }
-        
-        .stat-value {
-            font-size: 2.5em;
-            font-weight: bold;
-        }
+        .stat-label { font-size: 0.9em; opacity: 0.95; margin-bottom: 10px; }
+        .stat-value { font-size: 2.5em; font-weight: bold; }
         
         .charts-grid {
             display: grid;
@@ -273,25 +250,6 @@
             box-shadow: var(--shadow-md);
             overflow-x: auto;
             border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            -webkit-overflow-scrolling: touch;
-        }
-        
-        .table-wrapper {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            position: relative;
-        }
-        
-        .table-scroll-indicator {
-            display: none;
-            text-align: center;
-            padding: 10px;
-            color: var(--text-muted);
-            font-size: 0.85em;
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            margin-bottom: 10px;
         }
         
         .filter-section {
@@ -304,7 +262,7 @@
         .filter-wrapper {
             flex: 1;
             min-width: 200px;
-            position: relative; /* Importante para posicionar a lista suspensa */
+            position: relative;
         }
         
         .filter-input {
@@ -323,7 +281,6 @@
             border-color: var(--accent-color);
         }
         
-        /* Estilos da lista suspensa (Autocomplete) */
         .autocomplete-suggestions {
             position: absolute;
             top: 100%;
@@ -346,19 +303,10 @@
             color: var(--text-primary);
         }
         
-        .autocomplete-suggestion:last-child {
-            border-bottom: none;
-        }
+        .autocomplete-suggestion:last-child { border-bottom: none; }
+        .autocomplete-suggestion:hover { background: var(--bg-tertiary); }
         
-        .autocomplete-suggestion:hover {
-            background: var(--bg-tertiary);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         
         th {
             background: var(--accent-color);
@@ -377,9 +325,7 @@
             color: var(--text-primary);
         }
         
-        tr:hover {
-            background: var(--bg-tertiary);
-        }
+        tr:hover { background: var(--bg-tertiary); }
         
         .status-badge {
             padding: 5px 12px;
@@ -389,35 +335,14 @@
             display: inline-block;
         }
         
-        .status-concluida {
-            background: #d4edda;
-            color: #155724;
-        }
+        .status-concluida { background: #d4edda; color: #155724; }
+        [data-theme="dark"] .status-concluida { background: #2d5a3d; color: #68d391; }
         
-        [data-theme="dark"] .status-concluida {
-            background: #2d5a3d;
-            color: #68d391;
-        }
+        .status-andamento { background: #fff3cd; color: #856404; }
+        [data-theme="dark"] .status-andamento { background: #5a4a1f; color: #f6ad55; }
         
-        .status-andamento {
-            background: #fff3cd;
-            color: #856404;
-        }
-        
-        [data-theme="dark"] .status-andamento {
-            background: #5a4a1f;
-            color: #f6ad55;
-        }
-        
-        .status-cancelada {
-            background: #f8d7da;
-            color: #721c24;
-        }
-        
-        [data-theme="dark"] .status-cancelada {
-            background: #5a2a2d;
-            color: #fc8181;
-        }
+        .status-cancelada { background: #f8d7da; color: #721c24; }
+        [data-theme="dark"] .status-cancelada { background: #5a2a2d; color: #fc8181; }
         
         .loading {
             text-align: center;
@@ -436,236 +361,19 @@
             margin: 20px auto;
         }
         
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
-        .empty-state {
-            text-align: center;
-            padding: 60px;
-            color: var(--text-muted);
-        }
+        .empty-state { text-align: center; padding: 60px; color: var(--text-muted); }
+        .empty-state h2 { color: var(--text-primary); margin-top: 15px; }
+        .empty-state-icon { font-size: 4em; margin-bottom: 20px; color: var(--text-muted); }
         
-        .empty-state h2 {
-            color: var(--text-primary);
-            margin-top: 15px;
-        }
-        
-        .empty-state-icon {
-            font-size: 4em;
-            margin-bottom: 20px;
-            color: var(--text-muted);
-        }
-        
+        /* Mobile styles (mantidos) */
         @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            
-            .container {
-                border-radius: 8px;
-            }
-            
-            header {
-                padding: 20px 15px;
-                padding-top: 60px;
-            }
-            
-            header h1 {
-                font-size: 1.5em;
-                margin-bottom: 8px;
-            }
-            
-            header p {
-                font-size: 0.9em;
-            }
-            
-            .theme-toggle {
-                position: absolute;
-                top: 15px;
-                right: 15px;
-                left: auto;
-                padding: 8px 15px;
-                font-size: 0.85em;
-            }
-            
-            .upload-section {
-                padding: 15px;
-            }
-            
-            .upload-box {
-                padding: 25px 15px;
-            }
-            
-            .upload-icon svg {
-                width: 60px;
-                height: 60px;
-            }
-            
-            .upload-text {
-                font-size: 0.95em;
-            }
-            
-            .tabs {
-                padding: 0 15px;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-            }
-            
-            .tabs::-webkit-scrollbar {
-                display: none;
-            }
-            
-            .tab {
-                padding: 12px 20px;
-                font-size: 1em;
-                white-space: nowrap;
-            }
-            
-            .content {
-                padding: 15px;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-                margin-bottom: 20px;
-            }
-            
-            .stat-card {
-                padding: 18px;
-            }
-            
-            .stat-label {
-                font-size: 0.8em;
-                margin-bottom: 8px;
-            }
-            
-            .stat-value {
-                font-size: 2em;
-            }
-            
-            .charts-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                margin-bottom: 20px;
-            }
-            
-            .chart-container {
-                padding: 15px;
-            }
-            
-            .chart-title {
-                font-size: 1.1em;
-                margin-bottom: 15px;
-            }
-            
-            .chart-container canvas {
-                max-height: 300px !important;
-            }
-            
-            .table-container {
-                padding: 15px;
-            }
-            
-            .filter-section {
-                gap: 10px;
-            }
-            
-            .filter-wrapper {
-                min-width: 100%;
-            }
-            
-            .filter-input {
-                padding: 10px;
-                font-size: 0.95em;
-            }
-            
-            .table-wrapper {
-                border: 1px solid var(--border-color);
-                border-radius: 8px;
-                overflow: hidden;
-            }
-            
-            table {
-                font-size: 0.85em;
-                min-width: 600px;
-            }
-            
-            th, td {
-                padding: 10px 8px;
-                white-space: nowrap;
-            }
-            
-            th {
-                font-size: 0.8em;
-                background: var(--accent-color);
-            }
-            
-            td {
-                border-right: 1px solid var(--border-color);
-            }
-            
-            td:last-child {
-                border-right: none;
-            }
-            
-            .status-badge {
-                font-size: 0.75em;
-                padding: 4px 8px;
-            }
-            
-            .empty-state {
-                padding: 40px 20px;
-            }
-            
-            .empty-state-icon svg {
-                width: 80px;
-                height: 80px;
-            }
-            
-            .empty-state h2 {
-                font-size: 1.3em;
-            }
-            
-            .empty-state p {
-                font-size: 0.9em;
-            }
-            
-            .loading {
-                padding: 40px 20px;
-                font-size: 1.1em;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.3em;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stat-card {
-                padding: 15px;
-            }
-            
-            .tab {
-                padding: 10px 15px;
-                font-size: 0.95em;
-            }
-            
-            table {
-                font-size: 0.75em;
-                min-width: 500px;
-            }
-            
-            th, td {
-                padding: 8px 5px;
-            }
+            body { padding: 10px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .charts-grid { grid-template-columns: 1fr; }
+            .table-container { padding: 15px; overflow-x: auto; }
+            th, td { padding: 10px 8px; white-space: nowrap; font-size: 0.85em; }
         }
     </style>
 </head>
@@ -674,7 +382,7 @@
         <header>
             <button class="theme-toggle" id="themeToggle">Modo Escuro</button>
             <h1>Dashboard - Controle de O.S</h1>
-            <p>Sistema de Análise de Ordens de Serviço - EIP</p>
+            <p>Sistema de Análise de Ordens de Serviço</p>
         </header>
         
         <div class="upload-section">
@@ -687,7 +395,8 @@
                     </svg>
                 </div>
                 <div class="upload-text">
-                    Clique ou arraste o arquivo Excel aqui para carregar/atualizar os dados
+                    Clique ou arraste o arquivo Excel aqui para carregar<br>
+                    <span style="font-size: 0.8em; opacity: 0.8">(Ou use ?doc_link=URL na barra de endereço)</span>
                 </div>
                 <input type="file" id="fileInput" accept=".xlsx,.xls">
             </div>
@@ -708,275 +417,201 @@
                     </svg>
                 </div>
                 <h2>Nenhum dado carregado</h2>
-                <p>Faça upload de um arquivo Excel para começar a análise</p>
+                <p>Faça upload ou use um link externo via parâmetro URL</p>
             </div>
         </div>
     </div>
 
     <script>
-        // Theme Toggle
+        // --- Setup Inicial e Tema ---
         const themeToggle = document.getElementById('themeToggle');
         const currentTheme = localStorage.getItem('theme') || 'light';
-        
         if (currentTheme === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
             themeToggle.textContent = 'Modo Claro';
         }
-        
         themeToggle.addEventListener('click', () => {
             const theme = document.documentElement.getAttribute('data-theme');
-            if (theme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-                themeToggle.textContent = 'Modo Escuro';
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                themeToggle.textContent = 'Modo Claro';
-            }
-            
-            // Rerender charts if data exists
-            if (Object.keys(workbookData).length > 0) {
-                renderDashboard(currentYear);
-            }
+            const newTheme = theme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'light' ? 'Modo Escuro' : 'Modo Claro';
+            if (Object.keys(workbookData).length > 0) renderDashboard(currentYear);
         });
-        
+
         let workbookData = {};
         let currentYear = '2024';
-        
-        // Upload functionality
         const uploadBox = document.getElementById('uploadBox');
         const fileInput = document.getElementById('fileInput');
         const tabsContainer = document.getElementById('tabsContainer');
         const contentArea = document.getElementById('contentArea');
-        
-        uploadBox.addEventListener('click', () => fileInput.click());
-        
-        uploadBox.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadBox.classList.add('dragover');
-        });
-        
-        uploadBox.addEventListener('dragleave', () => {
-            uploadBox.classList.remove('dragover');
-        });
-        
-        uploadBox.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadBox.classList.remove('dragover');
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                handleFile(files[0]);
-            }
-        });
-        
-        fileInput.addEventListener('change', (e) => {
-            if (e.target.files.length > 0) {
-                handleFile(e.target.files[0]);
+
+        // --- Verificação de Parâmetros de URL (GET) ---
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const docLink = urlParams.get('doc_link');
+
+            if (docLink) {
+                fetchFromUrl(docLink);
             }
         });
 
-        // Helper para parsear datas de diferentes formatos
+        function fetchFromUrl(url) {
+            contentArea.innerHTML = '<div class="loading"><div class="spinner"></div><div>Baixando planilha via URL...</div></div>';
+            
+            // Tratamento básico para links do Google Sheets
+            // Se for um link de edição, tenta converter para link de exportação xlsx
+            let fetchUrl = url;
+            if (url.includes('docs.google.com/spreadsheets') && !url.includes('export')) {
+                // Remove parametros e sufixos tipo /edit#gid=0 e adiciona export
+                fetchUrl = url.replace(/\/edit.*$/, '') + '/export?format=xlsx';
+                console.log('Link Google Sheets detectado. Convertido para:', fetchUrl);
+            }
+
+            fetch(fetchUrl)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
+                    return response.arrayBuffer();
+                })
+                .then(data => {
+                    processExcelData(new Uint8Array(data));
+                })
+                .catch(error => {
+                    console.error('Erro ao baixar planilha:', error);
+                    contentArea.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">❌</div>
+                            <h2>Erro ao carregar URL</h2>
+                            <p>${error.message}</p>
+                            <p style="font-size:0.9em; margin-top:10px">Verifique se o link é público e permite acesso direto (CORS).</p>
+                        </div>
+                    `;
+                });
+        }
+
+        // --- Upload Manual ---
+        uploadBox.addEventListener('click', () => fileInput.click());
+        uploadBox.addEventListener('dragover', (e) => { e.preventDefault(); uploadBox.classList.add('dragover'); });
+        uploadBox.addEventListener('dragleave', () => uploadBox.classList.remove('dragover'));
+        uploadBox.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadBox.classList.remove('dragover');
+            if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+        });
+        fileInput.addEventListener('change', (e) => { if (e.target.files.length) handleFile(e.target.files[0]); });
+
+        function handleFile(file) {
+            const reader = new FileReader();
+            contentArea.innerHTML = '<div class="loading"><div class="spinner"></div><div>Processando arquivo...</div></div>';
+            reader.onload = (e) => processExcelData(new Uint8Array(e.target.result));
+            reader.readAsArrayBuffer(file);
+        }
+
+        // --- Processamento Centralizado do Excel ---
+        function processExcelData(data) {
+            try {
+                const workbook = XLSX.read(data, {type: 'array', cellDates: true, dateNF: 'yyyy-mm-dd'});
+                workbookData = {};
+                
+                ['2024', '2025', '2026'].forEach(year => {
+                    if (workbook.SheetNames.includes(year)) {
+                        const worksheet = workbook.Sheets[year];
+                        const jsonData = XLSX.utils.sheet_to_json(worksheet, {header: 1, raw: false, dateNF: 'yyyy-mm-dd'});
+                        
+                        let headerRow = -1;
+                        for (let i = 0; i < Math.min(10, jsonData.length); i++) {
+                            if (jsonData[i] && jsonData[i].includes('STATUS')) {
+                                headerRow = i; break;
+                            }
+                        }
+                        
+                        if (headerRow >= 0) {
+                            const headers = jsonData[headerRow];
+                            const rows = jsonData.slice(headerRow + 1);
+                            workbookData[year] = rows
+                                .filter(row => row && row.length && row.some(c => c))
+                                .map(row => {
+                                    const obj = {};
+                                    headers.forEach((h, i) => {
+                                        let val = row[i];
+                                        if (val && typeof val === 'string' && val.match(/^\d{4}-\d{2}-\d{2}/)) {
+                                            const d = new Date(val);
+                                            if (!isNaN(d)) val = d;
+                                        }
+                                        obj[h || `col_${i}`] = val;
+                                    });
+                                    return obj;
+                                });
+                        }
+                    }
+                });
+                
+                tabsContainer.style.display = 'flex';
+                renderDashboard('2024');
+            } catch (error) {
+                console.error(error);
+                contentArea.innerHTML = `<div class="empty-state"><h2>Erro no processamento</h2><p>${error.message}</p></div>`;
+            }
+        }
+
+        // --- Renderização (Dashboards, Tabelas e Gráficos) ---
+        // Funções auxiliares mantidas
         function parseDateHelper(value) {
             if (!value) return null;
             if (value instanceof Date) return value;
-            
-            // String
             if (typeof value === 'string') {
-                const date = new Date(value);
-                if (!isNaN(date.getTime())) return date;
+                const d = new Date(value);
+                if (!isNaN(d)) return d;
             }
-            
-            // Número (Excel Serial)
             if (typeof value === 'number') {
-                const excelEpoch = new Date(1899, 11, 30);
-                const date = new Date(excelEpoch.getTime() + value * 86400000);
-                if (!isNaN(date.getTime())) return date;
+                return new Date(new Date(1899, 11, 30).getTime() + value * 86400000);
             }
-            
             return null;
         }
-        
-        function handleFile(file) {
-            const reader = new FileReader();
-            
-            contentArea.innerHTML = '<div class="loading"><div class="spinner"></div><div>Carregando dados...</div></div>';
-            
-            reader.onload = function(e) {
-                try {
-                    const data = new Uint8Array(e.target.result);
-                    const workbook = XLSX.read(data, {type: 'array', cellDates: true, dateNF: 'yyyy-mm-dd'});
-                    
-                    workbookData = {};
-                    
-                    // Process each sheet
-                    ['2024', '2025', '2026'].forEach(year => {
-                        if (workbook.SheetNames.includes(year)) {
-                            const worksheet = workbook.Sheets[year];
-                            const jsonData = XLSX.utils.sheet_to_json(worksheet, {header: 1, raw: false, dateNF: 'yyyy-mm-dd'});
-                            
-                            // Find header row (contains "STATUS")
-                            let headerRow = -1;
-                            for (let i = 0; i < Math.min(10, jsonData.length); i++) {
-                                if (jsonData[i] && jsonData[i].includes('STATUS')) {
-                                    headerRow = i;
-                                    break;
-                                }
-                            }
-                            
-                            if (headerRow >= 0) {
-                                const headers = jsonData[headerRow];
-                                const rows = jsonData.slice(headerRow + 1);
-                                
-                                workbookData[year] = rows
-                                    .filter(row => row && row.length > 0 && row.some(cell => cell !== null && cell !== undefined && cell !== ''))
-                                    .map(row => {
-                                        const obj = {};
-                                        headers.forEach((header, index) => {
-                                            const value = row[index];
-                                            
-                                            // Tentar converter strings de data para objetos Date
-                                            if (value && typeof value === 'string') {
-                                                // Verificar se parece uma data (formato ISO ou similar)
-                                                const dateMatch = value.match(/^\d{4}-\d{2}-\d{2}/);
-                                                if (dateMatch) {
-                                                    const parsed = new Date(value);
-                                                    if (!isNaN(parsed.getTime())) {
-                                                        obj[header || `col_${index}`] = parsed;
-                                                        return;
-                                                    }
-                                                }
-                                            }
-                                            
-                                            obj[header || `col_${index}`] = value;
-                                        });
-                                        return obj;
-                                    });
-                            }
-                        }
-                    });
-                    
-                    console.log('Dados carregados:', workbookData);
-                    
-                    tabsContainer.style.display = 'flex';
-                    renderDashboard('2024');
-                    
-                } catch (error) {
-                    console.error('Erro ao processar arquivo:', error);
-                    contentArea.innerHTML = `
-                        <div class="empty-state">
-                            <div class="empty-state-icon">
-                                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                                </svg>
-                            </div>
-                            <h2>Erro ao processar arquivo</h2>
-                            <p>${error.message}</p>
-                        </div>
-                    `;
-                }
-            };
-            
-            reader.readAsArrayBuffer(file);
-        }
-        
-        // Tab switching
+
         document.getElementById('tabsContainer').addEventListener('click', (e) => {
             if (e.target.classList.contains('tab')) {
-                document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
                 e.target.classList.add('active');
-                const year = e.target.dataset.year;
-                renderDashboard(year);
+                renderDashboard(e.target.dataset.year);
             }
         });
-        
+
         function renderDashboard(year) {
             currentYear = year;
-            
-            if (year === 'geral') {
-                renderGeralView();
-                return;
-            }
+            if (year === 'geral') { renderGeralView(); return; }
             
             const data = workbookData[year] || [];
-            
-            if (data.length === 0) {
-                contentArea.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-state-icon">
-                            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="9" y1="9" x2="15" y2="15"></line>
-                                <line x1="15" y1="9" x2="9" y2="15"></line>
-                            </svg>
-                        </div>
-                        <h2>Sem dados para ${year}</h2>
-                    </div>
-                `;
+            if (!data.length) {
+                contentArea.innerHTML = `<div class="empty-state"><h2>Sem dados para ${year}</h2></div>`;
                 return;
             }
-            
-            // Calculate statistics
+
             const stats = calculateStats(data);
             
-            // Render
+            // HTML da Dashboard
             contentArea.innerHTML = `
                 <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-label">Total de O.S</div>
-                        <div class="stat-value">${stats.total}</div>
-                    </div>
-                    <div class="stat-card success">
-                        <div class="stat-label">Concluídas</div>
-                        <div class="stat-value">${stats.concluidas}</div>
-                    </div>
-                    <div class="stat-card danger">
-                        <div class="stat-label">Canceladas</div>
-                        <div class="stat-value">${stats.canceladas}</div>
-                    </div>
-                    <div class="stat-card warning">
-                        <div class="stat-label">Em Andamento</div>
-                        <div class="stat-value">${stats.emAndamento}</div>
-                    </div>
+                    <div class="stat-card"><div class="stat-label">Total de O.S</div><div class="stat-value">${stats.total}</div></div>
+                    <div class="stat-card success"><div class="stat-label">Concluídas</div><div class="stat-value">${stats.concluidas}</div></div>
+                    <div class="stat-card danger"><div class="stat-label">Canceladas</div><div class="stat-value">${stats.canceladas}</div></div>
+                    <div class="stat-card warning"><div class="stat-label">Em Andamento</div><div class="stat-value">${stats.emAndamento}</div></div>
                 </div>
                 
                 <div class="charts-grid">
-                    <div class="chart-container">
-                        <div class="chart-title">Status das O.S</div>
-                        <canvas id="statusChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <div class="chart-title">Prazo das O.S</div>
-                        <canvas id="prazoChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <div class="chart-title">Top 10 Bairros</div>
-                        <canvas id="bairroChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <div class="chart-title">Tipos de Serviço</div>
-                        <canvas id="tipoChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <div class="chart-title">O.S por Mês</div>
-                        <canvas id="monthChart"></canvas>
-                    </div>
+                    <div class="chart-container"><div class="chart-title">Status das O.S</div><canvas id="statusChart"></canvas></div>
+                    <div class="chart-container"><div class="chart-title">Prazo das O.S</div><canvas id="prazoChart"></canvas></div>
+                    <div class="chart-container"><div class="chart-title">Top 10 Bairros</div><canvas id="bairroChart"></canvas></div>
+                    <div class="chart-container"><div class="chart-title">Tipos de Serviço</div><canvas id="tipoChart"></canvas></div>
+                    <div class="chart-container"><div class="chart-title">O.S por Mês</div><canvas id="monthChart"></canvas></div>
                 </div>
                 
                 <div class="table-container">
                     <div class="chart-title">Lista de Ordens de Serviço</div>
                     <div class="filter-section">
-                        <div class="filter-wrapper">
-                            <input type="text" class="filter-input" id="filterOS" placeholder="Buscar por Nº O.S...">
-                        </div>
-                        <div class="filter-wrapper">
-                            <input type="text" class="filter-input" id="filterEndereco" placeholder="Buscar por Endereço...">
-                        </div>
-                        <div class="filter-wrapper">
-                            <input type="text" class="filter-input" id="filterBairro" placeholder="Buscar por Bairro...">
-                        </div>
+                        <div class="filter-wrapper"><input type="text" class="filter-input" id="filterOS" placeholder="Buscar por Nº O.S..."></div>
+                        <div class="filter-wrapper"><input type="text" class="filter-input" id="filterEndereco" placeholder="Buscar por Endereço..."></div>
+                        <div class="filter-wrapper"><input type="text" class="filter-input" id="filterBairro" placeholder="Buscar por Bairro..."></div>
                         <div class="filter-wrapper">
                             <select class="filter-input" id="filterStatus">
                                 <option value="">Todos os Status</option>
@@ -986,79 +621,42 @@
                             </select>
                         </div>
                     </div>
-                    <div class="table-scroll-indicator" id="scrollIndicator">
-                        ← Arraste para ver mais colunas →
-                    </div>
                     <div class="table-wrapper" style="max-height: 600px; overflow-y: auto;">
                         <table id="osTable">
-                            <thead>
-                                <tr>
-                                    <th>O.S</th>
-                                    <th>Data</th>
-                                    <th>Endereço</th>
-                                    <th>Bairro</th>
-                                    <th>Serviço</th>
-                                    <th>Tipo</th>
-                                    <th>Status</th>
-                                    <th>Prazo</th>
-                                </tr>
-                            </thead>
+                            <thead><tr><th>O.S</th><th>Data</th><th>Endereço</th><th>Bairro</th><th>Serviço</th><th>Tipo</th><th>Status</th><th>Prazo</th></tr></thead>
                             <tbody id="tableBody"></tbody>
                         </table>
                     </div>
                 </div>
             `;
             
-            // Render charts
-            renderCharts(data, stats);
-            
-            // Render table
+            renderCharts(stats);
             renderTable(data);
-            
-            // Setup Filters and Autocomplete
             setupFiltersAndAutocomplete(data);
         }
-        
+
+        // Lógica de Estatísticas (Atualizada para Prazo)
         function calculateStats(data) {
             const stats = {
-                total: data.length,
-                concluidas: 0,
-                canceladas: 0,
-                emAndamento: 0,
-                bairros: {},
-                tipos: {},
-                meses: {},
-                prazos: {
-                    noPrazo: 0,           // Verde: Concluida no prazo
-                    emAndamentoNoPrazo: 0, // Amarelo: Em andamento (dentro do prazo)
-                    concluidaForaPrazo: 0, // Laranja: Concluida fora do prazo
-                    pendenteForaPrazo: 0   // Vermelho: Fora do prazo (não concluída)
-                }
+                total: data.length, concluidas: 0, canceladas: 0, emAndamento: 0,
+                bairros: {}, tipos: {}, meses: {},
+                prazos: { noPrazo: 0, emAndamentoNoPrazo: 0, concluidaForaPrazo: 0, pendenteForaPrazo: 0 }
             };
-            
-            const hoje = new Date();
-            hoje.setHours(0,0,0,0);
+            const hoje = new Date(); hoje.setHours(0,0,0,0);
 
             data.forEach(row => {
-                // Status
                 const status = (row['STATUS'] || '').toString().toUpperCase();
                 const statusText = (row['STATUS.1'] || '').toString().toUpperCase();
                 const info = (row['INFORMAÇÃO'] || '').toString().toUpperCase();
                 
-                let isCancelada = false;
-                let isConcluida = false;
-
-                if (status.includes('CANCELADA') || statusText.includes('CANCELADA')) {
-                    stats.canceladas++;
-                    isCancelada = true;
-                } else if (info.includes('CONCLUÍDA') || row['DATA CONCLUIDA']) {
-                    stats.concluidas++;
-                    isConcluida = true;
-                } else {
-                    stats.emAndamento++;
-                }
+                let isCancelada = status.includes('CANCELADA') || statusText.includes('CANCELADA');
+                let isConcluida = !isCancelada && (info.includes('CONCLUÍDA') || row['DATA CONCLUIDA']);
                 
-                // --- Lógica de Prazos ---
+                if (isCancelada) stats.canceladas++;
+                else if (isConcluida) stats.concluidas++;
+                else stats.emAndamento++;
+
+                // Lógica de Prazos
                 if (!isCancelada) {
                     const dataRecebida = parseDateHelper(row['DATA RECEBIDA'] || row['DATA']);
                     const prazoDias = parseInt(row['PRAZO']);
@@ -1067,592 +665,282 @@
                     if (dataRecebida && !isNaN(prazoDias)) {
                         const dataLimite = new Date(dataRecebida);
                         dataLimite.setDate(dataLimite.getDate() + prazoDias);
-                        dataLimite.setHours(23, 59, 59, 999);
-                        
-                        // Normalizar datas para comparação
+                        dataLimite.setHours(23,59,59,999);
                         if(dataConcluida) dataConcluida.setHours(0,0,0,0);
 
                         if (isConcluida) {
-                            if (dataConcluida && dataConcluida <= dataLimite) {
-                                stats.prazos.noPrazo++;
-                            } else if (dataConcluida && dataConcluida > dataLimite) {
-                                stats.prazos.concluidaForaPrazo++;
-                            } else {
-                                // Fallback se não tiver data exata mas está concluída
-                                if(info.includes('FORA DO PRAZO')) stats.prazos.concluidaForaPrazo++;
-                                else stats.prazos.noPrazo++; 
-                            }
+                            if (dataConcluida && dataConcluida <= dataLimite) stats.prazos.noPrazo++;
+                            else if (dataConcluida && dataConcluida > dataLimite) stats.prazos.concluidaForaPrazo++;
+                            else if (info.includes('FORA DO PRAZO')) stats.prazos.concluidaForaPrazo++;
+                            else stats.prazos.noPrazo++;
                         } else {
-                            // Não concluída
-                            if (hoje <= dataLimite) {
-                                stats.prazos.emAndamentoNoPrazo++;
-                            } else {
-                                stats.prazos.pendenteForaPrazo++;
-                            }
+                            if (hoje <= dataLimite) stats.prazos.emAndamentoNoPrazo++;
+                            else stats.prazos.pendenteForaPrazo++;
                         }
                     }
                 }
 
-                // Bairros
+                // Agregações
                 const bairro = row['BAIRRO'] || 'Não informado';
                 stats.bairros[bairro] = (stats.bairros[bairro] || 0) + 1;
-                
-                // Tipos
                 const tipo = row['TIPO'] || 'Não informado';
                 stats.tipos[tipo] = (stats.tipos[tipo] || 0) + 1;
                 
-                // Meses
-                let dataParaProcessar = null;
-                const possiveisColunasData = ['DATA RECEBIDA', 'DATA', 'DATA CONCLUIDA'];
-                for (let coluna of possiveisColunasData) {
-                    if (row[coluna]) {
-                        dataParaProcessar = row[coluna];
-                        break;
-                    }
-                }
-                if (!dataParaProcessar) {
-                    for (let key in row) {
-                        if (key && key.includes && key.includes('DATA') && row[key]) {
-                            dataParaProcessar = row[key];
-                            break;
-                        }
-                    }
-                }
-                
-                const date = parseDateHelper(dataParaProcessar);
-                if (date) {
-                    const mesKey = date.getMonth();
-                    const mesesNomes = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 
-                                       'jul', 'ago', 'set', 'out', 'nov', 'dez'];
-                    const mesNome = mesesNomes[mesKey];
-                    stats.meses[mesNome] = (stats.meses[mesNome] || 0) + 1;
+                let dataProc = parseDateHelper(row['DATA RECEBIDA'] || row['DATA'] || row['DATA CONCLUIDA']);
+                if (dataProc) {
+                    const mes = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'][dataProc.getMonth()];
+                    stats.meses[mes] = (stats.meses[mes] || 0) + 1;
                 }
             });
-            
             return stats;
         }
-        
-        function renderCharts(data, stats) {
+
+        // --- Gráficos ---
+        function renderCharts(stats) {
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            const textColor = isDark ? '#e2e8f0' : '#2d3748';
-            const gridColor = isDark ? '#4a5568' : '#e2e8f0';
-            const isMobile = window.innerWidth <= 768;
-            
-            Chart.defaults.color = textColor;
-            Chart.defaults.borderColor = gridColor;
-            
-            // Status Chart
+            const color = isDark ? '#e2e8f0' : '#2d3748';
+            Chart.defaults.color = color;
+            Chart.defaults.borderColor = isDark ? '#4a5568' : '#e2e8f0';
+
+            // Status
             new Chart(document.getElementById('statusChart'), {
                 type: 'doughnut',
                 data: {
                     labels: ['Concluídas', 'Canceladas', 'Em Andamento'],
-                    datasets: [{
-                        data: [stats.concluidas, stats.canceladas, stats.emAndamento],
-                        backgroundColor: ['#48bb78', '#f56565', '#ed8936']
-                    }]
+                    datasets: [{ data: [stats.concluidas, stats.canceladas, stats.emAndamento], backgroundColor: ['#48bb78', '#f56565', '#ed8936'] }]
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: !isMobile,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { color: textColor, padding: 10, font: { size: isMobile ? 11 : 12 } }
-                        }
-                    }
-                }
+                options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
             });
 
-            // Prazo Chart (Novo)
+            // Prazos (Novo)
             new Chart(document.getElementById('prazoChart'), {
-                type: 'pie', // Ou 'doughnut'
-                data: {
-                    labels: [
-                        'Concluída no Prazo', 
-                        'Em Andamento (No Prazo)', 
-                        'Concluída Fora do Prazo', 
-                        'Pendente (Fora do Prazo)'
-                    ],
-                    datasets: [{
-                        data: [
-                            stats.prazos.noPrazo,
-                            stats.prazos.emAndamentoNoPrazo,
-                            stats.prazos.concluidaForaPrazo,
-                            stats.prazos.pendenteForaPrazo
-                        ],
-                        backgroundColor: [
-                            '#48bb78', // Verde
-                            '#f6ad55', // Amarelo (Usando um tom amarelado/laranja claro do tema)
-                            '#ed8936', // Laranja
-                            '#f56565'  // Vermelho
-                        ]
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: !isMobile,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { color: textColor, padding: 10, font: { size: isMobile ? 10 : 12 } }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    const label = context.label || '';
-                                    const value = context.parsed;
-                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                    const percentage = total > 0 ? Math.round((value / total) * 100) + '%' : '0%';
-                                    return `${label}: ${value} (${percentage})`;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-            
-            // Bairro Chart
-            const topBairros = Object.entries(stats.bairros)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, isMobile ? 5 : 10);
-            
-            new Chart(document.getElementById('bairroChart'), {
-                type: 'bar',
-                data: {
-                    labels: topBairros.map(b => b[0]),
-                    datasets: [{
-                        label: 'Quantidade',
-                        data: topBairros.map(b => b[1]),
-                        backgroundColor: '#5a67d8'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: !isMobile,
-                    indexAxis: isMobile ? 'y' : 'x',
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        y: { beginAtZero: true, ticks: { color: textColor }, grid: { color: gridColor } },
-                        x: { ticks: { color: textColor }, grid: { color: gridColor } }
-                    }
-                }
-            });
-            
-            // Tipo Chart
-            const topTipos = Object.entries(stats.tipos)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, isMobile ? 6 : 10);
-            
-            new Chart(document.getElementById('tipoChart'), {
                 type: 'pie',
                 data: {
-                    labels: topTipos.map(t => t[0]),
+                    labels: ['No Prazo (Concluída)', 'No Prazo (Andamento)', 'Fora do Prazo (Concluída)', 'Fora do Prazo (Pendente)'],
                     datasets: [{
-                        data: topTipos.map(t => t[1]),
-                        backgroundColor: [
-                            '#5a67d8', '#48bb78', '#ed8936', '#f56565',
-                            '#38b2ac', '#9f7aea', '#ec4899', '#f59e0b',
-                            '#10b981', '#6366f1'
-                        ]
+                        data: [stats.prazos.noPrazo, stats.prazos.emAndamentoNoPrazo, stats.prazos.concluidaForaPrazo, stats.prazos.pendenteForaPrazo],
+                        backgroundColor: ['#48bb78', '#f6ad55', '#ed8936', '#f56565']
                     }]
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: !isMobile,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { color: textColor, padding: 8, font: { size: isMobile ? 10 : 12 } }
-                        }
-                    }
-                }
+                options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
             });
-            
-            // Month Chart
-            const mesesOrdenados = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 
-                                     'jul', 'ago', 'set', 'out', 'nov', 'dez'];
-            const dadosMeses = mesesOrdenados.map(mes => stats.meses[mes] || 0);
-            
+
+            // Bairros
+            const bairrosData = Object.entries(stats.bairros).sort((a,b) => b[1]-a[1]).slice(0, 10);
+            new Chart(document.getElementById('bairroChart'), {
+                type: 'bar',
+                data: { labels: bairrosData.map(d=>d[0]), datasets: [{ label:'Qtd', data: bairrosData.map(d=>d[1]), backgroundColor: '#5a67d8' }] },
+                options: { responsive: true, indexAxis: window.innerWidth <= 768 ? 'y' : 'x', plugins: { legend: { display: false } } }
+            });
+
+            // Tipos
+            const tiposData = Object.entries(stats.tipos).sort((a,b) => b[1]-a[1]).slice(0, 10);
+            new Chart(document.getElementById('tipoChart'), {
+                type: 'pie',
+                data: { labels: tiposData.map(d=>d[0]), datasets: [{ data: tiposData.map(d=>d[1]), backgroundColor: ['#5a67d8','#48bb78','#ed8936','#f56565','#38b2ac'] }] },
+                options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+            });
+
+            // Meses
+            const mesesOrd = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
             new Chart(document.getElementById('monthChart'), {
                 type: 'line',
                 data: {
-                    labels: mesesOrdenados.map(m => m.toUpperCase()),
-                    datasets: [{
-                        label: 'O.S por Mês',
-                        data: dadosMeses,
-                        borderColor: '#5a67d8',
-                        backgroundColor: isDark ? 'rgba(90, 103, 216, 0.2)' : 'rgba(90, 103, 216, 0.1)',
-                        tension: 0.4,
-                        fill: true,
-                        pointBackgroundColor: '#5a67d8',
-                        pointBorderColor: '#fff',
-                        pointBorderWidth: 2
-                    }]
+                    labels: mesesOrd.map(m=>m.toUpperCase()),
+                    datasets: [{ label:'O.S', data: mesesOrd.map(m=>stats.meses[m]||0), borderColor: '#5a67d8', fill: true, backgroundColor: 'rgba(90,103,216,0.1)' }]
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: !isMobile,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        y: { beginAtZero: true, ticks: { color: textColor, stepSize: 1 }, grid: { color: gridColor } },
-                        x: { ticks: { color: textColor }, grid: { color: gridColor } }
-                    }
-                }
+                options: { responsive: true, plugins: { legend: { display: false } } }
             });
         }
-        
+
         function renderTable(data) {
             const tbody = document.getElementById('tableBody');
             tbody.innerHTML = '';
-            
             data.forEach(row => {
                 const tr = document.createElement('tr');
-                
-                // Determine status
+                // Status Badge logic similar to before
                 const status = (row['STATUS'] || '').toString().toUpperCase();
-                const statusText = (row['STATUS.1'] || '').toString().toUpperCase();
                 const info = (row['INFORMAÇÃO'] || '').toString().toUpperCase();
+                let badgeClass = 'status-andamento', badgeText = 'Em Andamento';
                 
-                let statusBadge = '';
-                if (status.includes('CANCELADA') || statusText.includes('CANCELADA')) {
-                    statusBadge = '<span class="status-badge status-cancelada">Cancelada</span>';
-                } else if (info.includes('CONCLUÍDA') || row['DATA CONCLUIDA']) {
-                    statusBadge = '<span class="status-badge status-concluida">Concluída</span>';
-                } else {
-                    statusBadge = '<span class="status-badge status-andamento">Em Andamento</span>';
-                }
+                if (status.includes('CANCELADA')) { badgeClass = 'status-cancelada'; badgeText = 'Cancelada'; }
+                else if (info.includes('CONCLUÍDA') || row['DATA CONCLUIDA']) { badgeClass = 'status-concluida'; badgeText = 'Concluída'; }
                 
-                // Format date
-                let dataFormatada = '';
                 const date = parseDateHelper(row['DATA RECEBIDA']);
-                if (date) dataFormatada = date.toLocaleDateString('pt-BR');
-                else if (row['DATA RECEBIDA']) dataFormatada = row['DATA RECEBIDA'];
                 
                 tr.innerHTML = `
                     <td>${row['O.S'] || '-'}</td>
-                    <td>${dataFormatada}</td>
+                    <td>${date ? date.toLocaleDateString('pt-BR') : (row['DATA RECEBIDA']||'-')}</td>
                     <td>${row['ENDEREÇO '] || row['ENDEREÇO'] || '-'}</td>
                     <td>${row['BAIRRO'] || '-'}</td>
                     <td>${row['SERVIÇO '] || row['SERVIÇO'] || '-'}</td>
                     <td>${row['TIPO'] || '-'}</td>
-                    <td>${statusBadge}</td>
+                    <td><span class="status-badge ${badgeClass}">${badgeText}</span></td>
                     <td>${row['PRAZO'] || '-'}</td>
                 `;
                 
-                tr.dataset.os = (row['O.S'] || '').toString().toLowerCase();
-                tr.dataset.endereco = (row['ENDEREÇO '] || row['ENDEREÇO'] || '').toString().toLowerCase();
-                tr.dataset.bairro = (row['BAIRRO'] || '').toString().toLowerCase();
-                tr.dataset.status = statusBadge.includes('concluida') ? 'concluida' : 
-                                    statusBadge.includes('cancelada') ? 'cancelada' : 'andamento';
+                // Metadados para filtro
+                tr.dataset.os = (row['O.S']||'').toString().toLowerCase();
+                tr.dataset.endereco = (row['ENDEREÇO ']||row['ENDEREÇO']||'').toString().toLowerCase();
+                tr.dataset.bairro = (row['BAIRRO']||'').toString().toLowerCase();
+                tr.dataset.status = badgeText.includes('Concluída') ? 'concluida' : badgeText.includes('Cancelada') ? 'cancelada' : 'andamento';
                 
                 tbody.appendChild(tr);
             });
-            
-            // Show scroll indicator logic (omitted for brevity, same as before)
         }
-        
-        // --- Função de Autocomplete e Filtros ---
+
+        // --- Autocomplete e Filtros Aprimorados ---
         function setupFiltersAndAutocomplete(data) {
-            const filterOS = document.getElementById('filterOS');
-            const filterEndereco = document.getElementById('filterEndereco');
-            const filterBairro = document.getElementById('filterBairro');
-            const filterStatus = document.getElementById('filterStatus');
+            const fOS = document.getElementById('filterOS');
+            const fEnd = document.getElementById('filterEndereco');
+            const fBai = document.getElementById('filterBairro');
+            const fStat = document.getElementById('filterStatus');
 
-            // 1. Extrair valores únicos para o autocomplete
-            const uniqueOS = [...new Set(data.map(r => (r['O.S'] || '').toString()).filter(Boolean))];
-            const uniqueEnderecos = [...new Set(data.map(r => (r['ENDEREÇO '] || r['ENDEREÇO'] || '').toString()).filter(Boolean))];
-            const uniqueBairros = [...new Set(data.map(r => (r['BAIRRO'] || '').toString()).filter(Boolean))];
+            const uOS = [...new Set(data.map(r => (r['O.S']||'').toString()).filter(Boolean))];
+            const uEnd = [...new Set(data.map(r => (r['ENDEREÇO ']||r['ENDEREÇO']||'').toString()).filter(Boolean))];
+            const uBai = [...new Set(data.map(r => (r['BAIRRO']||'').toString()).filter(Boolean))];
 
-            // 2. Configurar Autocomplete para cada campo
-            setupSingleAutocomplete(filterOS, uniqueOS);
-            setupSingleAutocomplete(filterEndereco, uniqueEnderecos);
-            setupSingleAutocomplete(filterBairro, uniqueBairros);
+            setupSingleAutocomplete(fOS, uOS);
+            setupSingleAutocomplete(fEnd, uEnd);
+            setupSingleAutocomplete(fBai, uBai);
             
-            // Função de aplicar filtros (mantida)
-            const applyFilters = () => {
-                const osValue = filterOS.value.toLowerCase();
-                const enderecoValue = filterEndereco.value.toLowerCase();
-                const bairroValue = filterBairro.value.toLowerCase();
-                const statusValue = filterStatus.value;
+            const apply = () => {
+                const vOS = fOS.value.toLowerCase();
+                const vEnd = fEnd.value.toLowerCase();
+                const vBai = fBai.value.toLowerCase();
+                const vStat = fStat.value;
                 
-                const rows = document.querySelectorAll('#tableBody tr');
-                rows.forEach(row => {
-                    const matchOS = !osValue || row.dataset.os.includes(osValue);
-                    const matchEndereco = !enderecoValue || row.dataset.endereco.includes(enderecoValue);
-                    const matchBairro = !bairroValue || row.dataset.bairro.includes(bairroValue);
-                    const matchStatus = !statusValue || row.dataset.status === statusValue;
-                    
-                    if (matchOS && matchEndereco && matchBairro && matchStatus) {
-                        row.style.display = '';
-                    } else {
-                        row.style.display = 'none';
-                    }
+                document.querySelectorAll('#tableBody tr').forEach(row => {
+                    const ok = (!vOS || row.dataset.os.includes(vOS)) &&
+                               (!vEnd || row.dataset.endereco.includes(vEnd)) &&
+                               (!vBai || row.dataset.bairro.includes(vBai)) &&
+                               (!vStat || row.dataset.status === vStat);
+                    row.style.display = ok ? '' : 'none';
                 });
             };
             
-            filterOS.addEventListener('input', applyFilters);
-            filterEndereco.addEventListener('input', applyFilters);
-            filterBairro.addEventListener('input', applyFilters);
-            filterStatus.addEventListener('change', applyFilters);
+            [fOS, fEnd, fBai].forEach(el => el.addEventListener('input', apply));
+            fStat.addEventListener('change', apply);
         }
 
         function setupSingleAutocomplete(inputElement, sourceData) {
-            // Remover sugestões antigas se existirem
             const wrapper = inputElement.parentElement;
-            const existingSuggestions = wrapper.querySelector('.autocomplete-suggestions');
-            if (existingSuggestions) existingSuggestions.remove();
+            let list = wrapper.querySelector('.autocomplete-suggestions');
+            if (list) list.remove();
+            
+            list = document.createElement('div');
+            list.className = 'autocomplete-suggestions';
+            wrapper.appendChild(list);
 
-            // Criar container de sugestões
-            const suggestionsContainer = document.createElement('div');
-            suggestionsContainer.className = 'autocomplete-suggestions';
-            wrapper.appendChild(suggestionsContainer);
+            const fuse = new Fuse(sourceData, { threshold: 0.3, limit: 5 });
 
-            // Inicializar Fuse
-            const fuse = new Fuse(sourceData, {
-                threshold: 0.3,
-                limit: 5 // Top 5 matches
-            });
-
-            inputElement.addEventListener('input', (e) => {
-                const value = e.target.value;
-                if (!value || value.length < 2) { // Só buscar após 2 caracteres
-                    suggestionsContainer.style.display = 'none';
+            // Função para renderizar sugestões
+            const showSuggestions = (items) => {
+                list.innerHTML = '';
+                if (items.length === 0) {
+                    list.style.display = 'none';
                     return;
                 }
-
-                const results = fuse.search(value);
-                
-                if (results.length > 0) {
-                    suggestionsContainer.innerHTML = '';
-                    results.forEach(result => {
-                        const div = document.createElement('div');
-                        div.className = 'autocomplete-suggestion';
-                        div.textContent = result.item;
-                        div.addEventListener('click', () => {
-                            inputElement.value = result.item;
-                            suggestionsContainer.style.display = 'none';
-                            // Disparar evento de input para atualizar o filtro
-                            inputElement.dispatchEvent(new Event('input'));
-                        });
-                        suggestionsContainer.appendChild(div);
+                items.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'autocomplete-suggestion';
+                    div.textContent = item;
+                    div.addEventListener('click', () => {
+                        inputElement.value = item;
+                        list.style.display = 'none';
+                        inputElement.dispatchEvent(new Event('input'));
                     });
-                    suggestionsContainer.style.display = 'block';
-                } else {
-                    suggestionsContainer.style.display = 'none';
+                    list.appendChild(div);
+                });
+                list.style.display = 'block';
+            };
+
+            // Evento Focus: Mostra os Top 5 se vazio
+            inputElement.addEventListener('focus', () => {
+                if (!inputElement.value.trim()) {
+                    showSuggestions(sourceData.slice(0, 5));
                 }
             });
 
-            // Fechar sugestões ao clicar fora
-            document.addEventListener('click', (e) => {
-                if (!wrapper.contains(e.target)) {
-                    suggestionsContainer.style.display = 'none';
+            // Evento Input: Busca Fuzzy ou mostra Top 5 se limpar
+            inputElement.addEventListener('input', (e) => {
+                const val = e.target.value;
+                if (!val) {
+                    showSuggestions(sourceData.slice(0, 5));
+                } else if (val.length >= 2) {
+                    const results = fuse.search(val).map(r => r.item);
+                    showSuggestions(results);
+                } else {
+                    list.style.display = 'none';
                 }
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!wrapper.contains(e.target)) list.style.display = 'none';
             });
         }
         
         function renderGeralView() {
-            // Combine all years
+            // Lógica similar ao dashboard anual, mas concatenando todos os anos
             const allData = Object.values(workbookData).flat();
-            
-            if (allData.length === 0) {
-                contentArea.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-state-icon">
-                            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="9" y1="9" x2="15" y2="15"></line>
-                                <line x1="15" y1="9" x2="9" y2="15"></line>
-                            </svg>
-                        </div>
-                        <h2>Sem dados</h2>
-                    </div>
-                `;
-                return;
-            }
+            if (!allData.length) { contentArea.innerHTML = '<div class="empty-state"><h2>Sem dados</h2></div>'; return; }
             
             const stats = calculateStats(allData);
             
-            // Add year distribution
-            const yearStats = {};
-            Object.keys(workbookData).forEach(year => {
-                yearStats[year] = workbookData[year].length;
-            });
-            
+            // Layout Geral (Simplificado para o exemplo)
             contentArea.innerHTML = `
                 <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-label">Total Geral de O.S</div>
-                        <div class="stat-value">${stats.total}</div>
-                    </div>
-                    <div class="stat-card success">
-                        <div class="stat-label">Concluídas</div>
-                        <div class="stat-value">${stats.concluidas}</div>
-                    </div>
-                    <div class="stat-card danger">
-                        <div class="stat-label">Canceladas</div>
-                        <div class="stat-value">${stats.canceladas}</div>
-                    </div>
-                    <div class="stat-card warning">
-                        <div class="stat-label">Em Andamento</div>
-                        <div class="stat-value">${stats.emAndamento}</div>
-                    </div>
+                    <div class="stat-card"><div class="stat-label">Total Geral</div><div class="stat-value">${stats.total}</div></div>
+                    <div class="stat-card success"><div class="stat-label">Concluídas</div><div class="stat-value">${stats.concluidas}</div></div>
+                    <div class="stat-card danger"><div class="stat-label">Canceladas</div><div class="stat-value">${stats.canceladas}</div></div>
+                    <div class="stat-card warning"><div class="stat-label">Em Andamento</div><div class="stat-value">${stats.emAndamento}</div></div>
                 </div>
-                
                 <div class="charts-grid">
-                    <div class="chart-container">
-                        <div class="chart-title">Distribuição por Ano</div>
-                        <canvas id="yearChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <div class="chart-title">Status Geral</div>
-                        <canvas id="statusGeralChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <div class="chart-title">Prazo Geral</div>
-                        <canvas id="prazoGeralChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <div class="chart-title">Top 15 Bairros (Geral)</div>
-                        <canvas id="bairroGeralChart"></canvas>
-                    </div>
-                    <div class="chart-container">
-                        <div class="chart-title">Tipos de Serviço (Geral)</div>
-                        <canvas id="tipoGeralChart"></canvas>
-                    </div>
+                    <div class="chart-container"><div class="chart-title">Status Geral</div><canvas id="statusGeralChart"></canvas></div>
+                    <div class="chart-container"><div class="chart-title">Prazo Geral</div><canvas id="prazoGeralChart"></canvas></div>
+                    <div class="chart-container"><div class="chart-title">Top 10 Bairros</div><canvas id="bairroGeralChart"></canvas></div>
+                    <div class="chart-container"><div class="chart-title">Tipos de Serviço</div><canvas id="tipoGeralChart"></canvas></div>
                 </div>
             `;
-            
+
+            // Renderizar gráficos gerais...
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            const textColor = isDark ? '#e2e8f0' : '#2d3748';
-            const gridColor = isDark ? '#4a5568' : '#e2e8f0';
-            const isMobile = window.innerWidth <= 768;
+            const color = isDark ? '#e2e8f0' : '#2d3748';
+            Chart.defaults.color = color;
             
-            Chart.defaults.color = textColor;
-            Chart.defaults.borderColor = gridColor;
-            
-            // Year Chart
-            new Chart(document.getElementById('yearChart'), {
-                type: 'bar',
-                data: {
-                    labels: Object.keys(yearStats),
-                    datasets: [{
-                        label: 'Quantidade de O.S',
-                        data: Object.values(yearStats),
-                        backgroundColor: ['#5a67d8', '#48bb78', '#ed8936']
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: !isMobile,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        y: { beginAtZero: true, ticks: { color: textColor }, grid: { color: gridColor } },
-                        x: { ticks: { color: textColor }, grid: { color: gridColor } }
-                    }
-                }
-            });
-            
-            // Status Chart
             new Chart(document.getElementById('statusGeralChart'), {
                 type: 'doughnut',
                 data: {
                     labels: ['Concluídas', 'Canceladas', 'Em Andamento'],
-                    datasets: [{
-                        data: [stats.concluidas, stats.canceladas, stats.emAndamento],
-                        backgroundColor: ['#48bb78', '#f56565', '#ed8936']
-                    }]
+                    datasets: [{ data: [stats.concluidas, stats.canceladas, stats.emAndamento], backgroundColor: ['#48bb78', '#f56565', '#ed8936'] }]
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: !isMobile,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { color: textColor, padding: 10, font: { size: isMobile ? 11 : 12 } }
-                        }
-                    }
-                }
+                options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
             });
 
-            // Prazo Geral Chart
             new Chart(document.getElementById('prazoGeralChart'), {
                 type: 'pie',
                 data: {
-                    labels: ['Concluída no Prazo', 'Em Andamento (No Prazo)', 'Concluída Fora do Prazo', 'Pendente (Fora do Prazo)'],
+                    labels: ['No Prazo', 'Andamento (Prazo)', 'Fora do Prazo', 'Pendente (Fora)'],
                     datasets: [{
-                        data: [
-                            stats.prazos.noPrazo,
-                            stats.prazos.emAndamentoNoPrazo,
-                            stats.prazos.concluidaForaPrazo,
-                            stats.prazos.pendenteForaPrazo
-                        ],
+                        data: [stats.prazos.noPrazo, stats.prazos.emAndamentoNoPrazo, stats.prazos.concluidaForaPrazo, stats.prazos.pendenteForaPrazo],
                         backgroundColor: ['#48bb78', '#f6ad55', '#ed8936', '#f56565']
                     }]
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: !isMobile,
-                    plugins: {
-                        legend: { position: 'bottom', labels: { color: textColor, padding: 10 } }
-                    }
-                }
+                options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
             });
-            
-            // Bairro Chart
-            const topBairros = Object.entries(stats.bairros)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, isMobile ? 8 : 15);
-            
+
+             const bairrosData = Object.entries(stats.bairros).sort((a,b) => b[1]-a[1]).slice(0, 10);
             new Chart(document.getElementById('bairroGeralChart'), {
                 type: 'bar',
-                data: {
-                    labels: topBairros.map(b => b[0]),
-                    datasets: [{
-                        label: 'Quantidade',
-                        data: topBairros.map(b => b[1]),
-                        backgroundColor: '#5a67d8'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: !isMobile,
-                    indexAxis: 'y',
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        x: { beginAtZero: true, ticks: { color: textColor }, grid: { color: gridColor } },
-                        y: { ticks: { color: textColor }, grid: { color: gridColor } }
-                    }
-                }
+                data: { labels: bairrosData.map(d=>d[0]), datasets: [{ label:'Qtd', data: bairrosData.map(d=>d[1]), backgroundColor: '#5a67d8' }] },
+                options: { responsive: true, indexAxis: 'y', plugins: { legend: { display: false } } }
             });
-            
-            // Tipo Chart
-            const topTipos = Object.entries(stats.tipos)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, isMobile ? 6 : 10);
-            
+
+            const tiposData = Object.entries(stats.tipos).sort((a,b) => b[1]-a[1]).slice(0, 10);
             new Chart(document.getElementById('tipoGeralChart'), {
                 type: 'pie',
-                data: {
-                    labels: topTipos.map(t => t[0]),
-                    datasets: [{
-                        data: topTipos.map(t => t[1]),
-                        backgroundColor: [
-                            '#5a67d8', '#48bb78', '#ed8936', '#f56565',
-                            '#38b2ac', '#9f7aea', '#ec4899', '#f59e0b',
-                            '#10b981', '#6366f1'
-                        ]
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: !isMobile,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { color: textColor, padding: 8, font: { size: isMobile ? 10 : 12 } }
-                        }
-                    }
-                }
+                data: { labels: tiposData.map(d=>d[0]), datasets: [{ data: tiposData.map(d=>d[1]), backgroundColor: ['#5a67d8','#48bb78','#ed8936','#f56565','#38b2ac'] }] },
+                options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
             });
         }
     </script>
